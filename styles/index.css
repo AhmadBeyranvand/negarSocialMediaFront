@@ -1,0 +1,22 @@
+.post-btn {
+    margin: auto 10px;
+    cursor: pointer;
+    border: solid thin gray;
+    padding: 5px;
+    border-radius: 999px;
+  }
+  .post-btn:hover {
+    filter: brightness(1) grayscale(0);
+  }
+  
+  .post {
+    max-width: 1000px;
+    background: white border-box;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 15px auto;
+  }
+  
+  /*# sourceMappingURL=index.css.map */
+  
