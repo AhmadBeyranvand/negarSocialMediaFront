@@ -1,8 +1,23 @@
 import profile from "../assets/img/profile.png"
 import Image from "next/image"
 import {FaEye, FaHeart, FaComment, FaCalendar, FaUser} from "react-icons/fa"
+import { useEffect, useState } from "react"
+import axios from "axios";
 
 export default function Post(props) {
+
+    const [likeCount, setLikeCount] = useState(0)
+
+    useEffect( ()=>{
+        axios.get("http://localhost/postDetails/likeCount.php?id="+props.id)
+        .then( res => {
+            if( res.status == 200){
+                setLikeCount(res.data)
+            }
+        } )
+    } )
+
+
     return (
         <div className="post">
             <div className="px-6 py-4 flex items-center">
@@ -52,10 +67,12 @@ export default function Post(props) {
                         <FaComment />
                         <span className="m-2">97</span>
                     </div>
+
                     <div className="flex items-center">
                         <FaHeart />
-                        <span className="m-2">321</span>
+                        <span className="m-2">{likeCount}</span>
                     </div>
+                    
                 </div>
             </div>
         </div>
