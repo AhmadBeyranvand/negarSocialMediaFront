@@ -1,5 +1,6 @@
 import profile from "../assets/img/profile.png"
 import Image from "next/image"
+import {FaEye, FaHeart, FaComment, FaCalendar, FaUser} from "react-icons/fa"
 
 export default function Post(props) {
     return (
@@ -34,25 +35,25 @@ export default function Post(props) {
 
                 <div className="stats flex justify-between text-gray-600 my-2">
                     <div className="flex items-center">
-                        <i className="far fa-user"></i>
+                        <FaUser/>
                         <span className="m-2">کاربر تست</span>
                     </div>
                     <div className="flex items-center">
-                        <i className="far fa-calendar"></i>
+                        <FaCalendar />
                         <span className="m-2">۱۴۰۱/۲/۱۲ ۱۳:۰۰</span>
                     </div>
                 </div>
                 <div className="stats flex justify-between text-gray-600 my-2">
                     <div className="flex items-center">
-                        <i className="far fa-eye"></i>
+                        <FaEye />
                         <span className="m-2">1205</span>
                     </div>
                     <div className="flex items-center">
-                        <i className="far fa-comment"></i>
+                        <FaComment />
                         <span className="m-2">97</span>
                     </div>
                     <div className="flex items-center">
-                        <i className="far fa-heart"></i>
+                        <FaHeart />
                         <span className="m-2">321</span>
                     </div>
                 </div>
