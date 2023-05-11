@@ -7,15 +7,30 @@ import axios from "axios";
 export default function Post(props) {
 
     const [likeCount, setLikeCount] = useState(0)
+    const [likeColor, setLikeColor] = useState("")
 
-    useEffect( ()=>{
+    const newLike = ()=>{
+        axios.get("http://localhost/postDetails/newLike.php?post_id="+props.id)
+        .then( res => {
+            if(res.status==200){
+                likeCountCalc()
+                setLikeColor("text-red-500")
+            }
+        })
+    }
+
+    const likeCountCalc = ()=>{
         axios.get("http://localhost/postDetails/likeCount.php?id="+props.id)
         .then( res => {
             if( res.status == 200){
                 setLikeCount(res.data)
             }
         } )
-    } )
+    }
+
+    useEffect( ()=>{
+        likeCountCalc()
+    } , [] )
 
 
     return (
@@ -69,7 +84,7 @@ export default function Post(props) {
                     </div>
 
                     <div className="flex items-center">
-                        <FaHeart />
+                        <FaHeart onClick={newLike} className={likeColor} />
                         <span className="m-2">{likeCount}</span>
                     </div>
                     
