@@ -9,14 +9,21 @@ export default function Post(props) {
     const [likeCount, setLikeCount] = useState(0)
     const [likeColor, setLikeColor] = useState("")
 
+    console.clear()
+    console.log(localStorage.getItem("user_logged_in"))
+
     const newLike = ()=>{
-        axios.get("http://localhost/postDetails/newLike.php?post_id="+props.id)
-        .then( res => {
-            if(res.status==200){
-                likeCountCalc()
-                setLikeColor("text-red-500")
-            }
-        })
+        if(localStorage.getItem("user_logged_in")=="true"){
+            axios.get("http://localhost/postDetails/newLike.php?post_id="+props.id)
+            .then( res => {
+                if(res.status==200){
+                    likeCountCalc()
+                    setLikeColor("text-red-500")
+                }
+            })
+        } else {
+            alert("برای لایک کردن باید عضو سایت باشید")
+        }
     }
 
     const likeCountCalc = ()=>{

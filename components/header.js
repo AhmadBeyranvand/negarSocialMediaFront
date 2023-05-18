@@ -16,7 +16,7 @@ export default function Header () {
                 <h1 className="mx-2 text-white font-bold text-2xl">شبکه اجتماعی نگار</h1>
             </div>
             <div className="">
-                <a className="header-button" href="login.html">ورود</a>
+                <a className="header-button" href="/auth/login">ورود</a>
                 <a className="header-button" href="register.html">ثبت‌نام</a>
             </div>
         </div>
